@@ -32,11 +32,12 @@ const express = require('express')
 
 const db = require('./db')
 const app = express()
-
+require('dotenv').config();
 const person = require('./models/person');
 const bodyParser = require('body-parser');
 const Person = require('./models/person');
 app.use(bodyParser.json());
+const PORT = process.env.PORT || 3000;
 
 const menuitems = require('./models/Menuitem');
 const MenuItem = require('./models/Menuitem');
@@ -69,7 +70,8 @@ app.use('/menu',menuroutes);
 // }
 // )
 
-app.listen(3000, () => {
+
+app.listen(PORT, () => {
   console.log("server is live");
 
 })
